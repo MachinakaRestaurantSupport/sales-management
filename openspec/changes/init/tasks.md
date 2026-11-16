@@ -2,7 +2,7 @@
 
 ## 1. プロジェクト基盤
 
-- [ ] 1.1 Python プロジェクト基盤 (`pyproject.toml`) を作成する
+- [x] 1.1 Python プロジェクト基盤 (`pyproject.toml`) を作成する
 
 ## 2. アプリケーション実装
 
