@@ -12,4 +12,4 @@
 
 ## 3. 検証・単体試験
 
-- [ ] 3.1 単体試験 (`tests/test_sales.py`) を作成し、`pytest` で全ケースがパスすることを確認する [SalesManagement_R01.DM01-01, SalesManagement_R01.DM01-02, SalesManagement_R01.DM01-03]
+- [x] 3.1 単体試験 (`tests/test_sales.py`) を作成し、`pytest` で全ケースがパスすることを確認する [SalesManagement_R01.DM01-01, SalesManagement_R01.DM01-02, SalesManagement_R01.DM01-03]
