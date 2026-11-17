@@ -59,3 +59,7 @@ class SalesStore:
     def clear(self) -> None:
         """Remove all stored sales records."""
         self._records.clear()
+
+    def list_records(self) -> list[SalesRecord]:
+        """Return all stored sales records."""
+        return list(self._records.values())

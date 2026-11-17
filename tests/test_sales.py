@@ -171,3 +171,22 @@ def test_summary_query_validation() -> None:
     assert client.get("/sales/summary/daily", params={"date": "2026-11"}).status_code == 422
     assert client.get("/sales/summary/monthly", params={"month": "2026"}).status_code == 422
     assert client.get("/sales/summary/yearly", params={"year": "26"}).status_code == 422
+
+
+def test_sales_ui_screens() -> None:
+    """Sales UI screens render daily, monthly, and records HTML views."""
+    client = _make_client()
+    client.post(
+        "/sales/records",
+        json={
+            "order_id": "ord-ui-1",
+            "payment_id": "pay-ui-1",
+            "channel": "dine_in",
+            "amount": 1500,
+            "recorded_at": "2026-11-16T12:00:00+09:00",
+        },
+    )
+    for path in ("/ui/sales/daily", "/ui/sales/monthly", "/ui/sales/records"):
+        res = client.get(path)
+        assert res.status_code == 200
+        assert "売上管理" in res.text

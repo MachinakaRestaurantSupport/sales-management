@@ -11,12 +11,14 @@ from sales_management.models import (
     SalesSummary,
 )
 from sales_management.store import DuplicateOrderError, SalesStore
+from sales_management.ui import create_ui_router
 
 
 def create_app(store: SalesStore | None = None) -> FastAPI:
     """Create and configure the FastAPI application."""
     application = FastAPI(title="Sales Management Service", version="0.1.0")
     sales_store = store or SalesStore()
+    application.include_router(create_ui_router(sales_store))
 
     @application.get("/health", response_model=HealthResponse)
     def health() -> HealthResponse:
